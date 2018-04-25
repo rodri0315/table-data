@@ -40,4 +40,28 @@ var table_data = [{
   }
 ];
 
+var drawRow = (first, last, home) => {
+  $('#table-data')
+      .append(`
+      <tr>
+        <td> ${first} </td>
+        <td> ${last} </td>
+        <td> ${home} </td>
+      </tr>`)
+}
 
+const drawTable = (data) => {
+  for (let index = 0; index < data.length; index++) {
+    const user = data[index];
+    
+    if(user.last_name === null) {
+      user.last_name = 'n/a'
+    }
+
+    drawRow(user.first_name, user.last_name, user.home)
+  }
+}
+
+
+
+drawTable(table_data)
